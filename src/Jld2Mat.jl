@@ -31,11 +31,12 @@ function main()
             outfile = string(file[1:end-4], ".mat")
         end
         printlog("Opening $file")
-        f = jldopen(file, "r")
-        printlog("Extracting variables from $file")
-        vars = read(f)
-        printlog("Writing to $outfile")
-        matwrite(outfile, vars)
+        jldopen(file, "r") do f
+            printlog("Extracting variables from $file")
+            vars = read(f)
+            printlog("Writing to $outfile")
+            matwrite(outfile, vars)
+        end
     end
 end
 
