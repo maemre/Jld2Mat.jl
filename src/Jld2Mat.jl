@@ -27,7 +27,7 @@ function main()
 
     for file in ARGS
         outfile = "$file.mat"
-        if endswith(".jld", lowercase(file))
+        if endswith(lowercase(file), ".jld")
             outfile = string(file[1:end-4], ".mat")
         end
         printlog("Opening $file")
