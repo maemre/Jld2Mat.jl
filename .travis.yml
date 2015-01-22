@@ -4,7 +4,7 @@ julia:
     - nightly
 script:
     - julia -e 'Pkg.clone(pwd())'
-    - julia -e 'Pkg.build("$name")'
+    - julia -e 'Pkg.build("Jld2Mat")'
     - if [ -f test/runtests.jl ]; then
-        julia --check-bounds=yes -e 'Pkg.test("$name")'
+        julia --check-bounds=yes -e 'Pkg.test("Jld2Mat")'
       fi
